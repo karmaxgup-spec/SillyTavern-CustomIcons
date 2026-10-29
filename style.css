@@ -3,7 +3,7 @@ body.tsb-on {
     --tsb-rail: 56px;
     --tsb-open: 232px;
     --tsb-cur: var(--tsb-rail);
-    --tsb-pad: var(--tsb-rail);
+    --tsb-pad: 0px;
     --tsb-content: calc(100dvw - var(--tsb-pad));
     --topBarBlockSize: 0px;
     padding-left: var(--tsb-pad);
@@ -200,6 +200,14 @@ body.tsb-on #bg_custom {
     }
 }
 
+
+/* The collapsed sidebar is a fixed overlay, never a layout column. */
+body.tsb-on:not(.tsb-expanded) #top-settings-holder.tsb-sidebar {
+    background: transparent !important;
+    border-right: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
 
 /* ---------- Collapsed mode: show only the three-line menu ---------- */
 body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-group,
