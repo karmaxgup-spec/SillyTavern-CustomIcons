@@ -209,9 +209,19 @@ body.tsb-on:not(.tsb-expanded) #top-settings-holder.tsb-sidebar {
     overflow: visible !important;
 }
 
-/* ---------- Collapsed mode: show only the three-line menu ---------- */
+/* ---------- Collapsed mode: show the three-line menu, plus the icon of any open panel ----------
+   Each drawer-content lives inside its icon's .drawer. Hiding the whole group would also
+   hide the open panel, so a group is kept visible while one of its drawers is open. */
 body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-group,
 body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-divider {
+    display: none !important;
+}
+
+body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-group:has(.drawer:has(.openDrawer)) {
+    display: flex !important;
+}
+
+body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-group .drawer:not(:has(.openDrawer)) {
     display: none !important;
 }
 
