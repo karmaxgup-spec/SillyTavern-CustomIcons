@@ -127,8 +127,23 @@ function applyState() {
 }
 
 function onDocumentClick(event) {
-    if (!event.target.closest('#tsb-toggle')) return;
-    setExpanded(!document.body.classList.contains('tsb-expanded'));
+    const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+    if (!target) return;
+
+    // The menu button only controls whether the sidebar is expanded.
+    if (target.closest('#tsb-toggle')) {
+        setExpanded(!document.body.classList.contains('tsb-expanded'));
+        return;
+    }
+
+    // After a sidebar icon is selected (for example, Extensions), collapse
+    // the navigation rail while leaving SillyTavern's selected drawer/panel open.
+    if (
+        document.body.classList.contains('tsb-expanded') &&
+        target.closest('#top-settings-holder.tsb-sidebar .tsb-group .drawer-toggle')
+    ) {
+        setExpanded(false);
+    }
 }
 
 jQuery(async () => {
