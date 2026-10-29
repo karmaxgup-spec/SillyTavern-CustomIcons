@@ -1,0 +1,309 @@
+/* ---------- Top Icon Sidebar: layout variables ---------- */
+body.tsb-on {
+    --tsb-rail: 56px;
+    --tsb-open: 232px;
+    --tsb-cur: var(--tsb-rail);
+    --tsb-pad: var(--tsb-rail);
+    --tsb-content: calc(100dvw - var(--tsb-pad));
+    --topBarBlockSize: 0px;
+    padding-left: var(--tsb-pad);
+    transition: padding-left 0.25s ease;
+}
+
+body.tsb-on.tsb-expanded {
+    --tsb-cur: var(--tsb-open);
+}
+
+@media (min-width: 900px) {
+    body.tsb-on.tsb-expanded {
+        --tsb-pad: var(--tsb-open);
+    }
+}
+
+@media (max-width: 899px) {
+    body.tsb-on {
+        --tsb-rail: 52px;
+        --tsb-open: min(240px, 76dvw);
+    }
+}
+
+body.tsb-on #top-settings-holder.tsb-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: var(--tsb-cur);
+    height: 100dvh;
+    margin: 0;
+    padding: 8px 6px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: color-mix(in srgb, var(--SmartThemeBlurTintColor) 94%, transparent);
+    border-right: 1px solid var(--SmartThemeBorderColor);
+    z-index: 3005;
+    transition: width 0.25s ease;
+}
+
+#tsb-toggle-row {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.tsb-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+    padding: 6px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.85;
+    justify-content: center;
+}
+
+.tsb-toggle:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.tsb-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tsb-divider {
+    height: 1px;
+    margin: 8px 8px;
+    background: var(--SmartThemeBorderColor);
+    opacity: 0.8;
+}
+
+body.tsb-on #top-settings-holder .drawer {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+body.tsb-on #top-settings-holder .drawer-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+    padding: 6px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+body.tsb-on #top-settings-holder .drawer-toggle:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+body.tsb-on #top-settings-holder .drawer-icon {
+    padding: 0;
+    flex: 0 0 auto;
+}
+
+body.tsb-on #top-settings-holder .drawer-icon.closedIcon {
+    opacity: 0.6;
+}
+
+body.tsb-on #top-settings-holder .drawer:has(.openIcon) > .drawer-toggle {
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7aa2ff) 28%, transparent);
+}
+
+body.tsb-on #top-settings-holder .drawer:has(.openIcon) .drawer-icon {
+    opacity: 1;
+}
+
+.tsb-label {
+    display: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    font-size: calc(var(--mainFontSize) * 0.95);
+}
+
+body.tsb-on.tsb-expanded .tsb-label {
+    display: block;
+}
+
+body.tsb-on.tsb-expanded .tsb-toggle,
+body.tsb-on.tsb-expanded #top-settings-holder .drawer-toggle {
+    justify-content: flex-start;
+    padding: 6px 10px;
+}
+
+body.tsb-on #top-settings-holder .drawer-content {
+    position: fixed !important;
+    top: 8px !important;
+    left: calc(var(--tsb-cur) + 8px) !important;
+    right: auto !important;
+    margin: 0 !important;
+    width: min(var(--sheldWidth), calc(100dvw - var(--tsb-cur) - 16px)) !important;
+    min-width: 0 !important;
+    max-height: calc(100dvh - 16px) !important;
+}
+
+body.tsb-on #top-settings-holder .drawer-content.fillLeft {
+    top: 0 !important;
+    left: var(--tsb-cur) !important;
+    width: calc((var(--tsb-content) - var(--sheldWidth) - 2px) / 2) !important;
+    max-height: 100dvh !important;
+}
+
+body.tsb-on #top-settings-holder .drawer-content.fillRight {
+    top: 0 !important;
+    left: calc(var(--tsb-pad) + var(--tsb-content) / 2 + var(--sheldWidth) / 2 + 1px) !important;
+    right: auto !important;
+    width: calc((var(--tsb-content) - var(--sheldWidth) - 2px) / 2) !important;
+    max-height: 100dvh !important;
+}
+
+body.tsb-on #sheld,
+body.tsb-on #top-bar {
+    left: calc(var(--tsb-pad) + (var(--tsb-content) - var(--sheldWidth)) / 2) !important;
+    right: auto !important;
+    margin: 0 !important;
+}
+
+body.tsb-on #bg1,
+body.tsb-on #bg_custom {
+    left: 0 !important;
+}
+
+@media (max-width: 899px) {
+    body.tsb-on #top-settings-holder .drawer-content.fillLeft,
+    body.tsb-on #top-settings-holder .drawer-content.fillRight {
+        left: var(--tsb-cur) !important;
+        width: calc(100dvw - var(--tsb-cur) - 8px) !important;
+    }
+
+    body.tsb-on #top-settings-holder.tsb-sidebar {
+        box-shadow: 4px 0 18px rgba(0, 0, 0, 0.45);
+    }
+
+    body.tsb-on #sheld,
+    body.tsb-on #top-bar {
+        left: var(--tsb-pad) !important;
+        width: var(--tsb-content) !important;
+        max-width: var(--tsb-content) !important;
+    }
+}
+
+
+/* ---------- Collapsed mode: show only the three-line menu ---------- */
+body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-group,
+body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-divider {
+    display: none !important;
+}
+
+body.tsb-on #top-settings-holder #tsb-toggle-row {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+}
+
+body.tsb-on #top-settings-holder .tsb-toggle {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 13px;
+    color: #fff;
+    background: linear-gradient(145deg, #833ab4, #d62976 58%, #f77737);
+    box-shadow: 0 3px 12px rgba(214, 41, 118, 0.28);
+    opacity: 1;
+}
+
+body.tsb-on #top-settings-holder .tsb-toggle > i {
+    font-size: 18px;
+}
+
+body.tsb-on #top-settings-holder .tsb-toggle:hover {
+    filter: brightness(1.12);
+    background: linear-gradient(145deg, #833ab4, #d62976 58%, #f77737);
+}
+
+/* ---------- Expanded mode: refreshed icon tiles ---------- */
+body.tsb-on.tsb-expanded #top-settings-holder .tsb-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 6px 10px;
+}
+
+body.tsb-on.tsb-expanded #top-settings-holder .drawer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(145deg, #454545, #242424);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.18);
+    font-size: 16px;
+    opacity: 1 !important;
+    transition: transform 0.16s ease, filter 0.16s ease;
+}
+
+body.tsb-on.tsb-expanded #top-settings-holder .drawer-toggle:hover .drawer-icon {
+    transform: translateY(-1px) scale(1.04);
+    filter: brightness(1.16);
+}
+
+body.tsb-on.tsb-expanded #top-settings-holder #sys-settings-button .drawer-icon {
+    background: linear-gradient(145deg, #667eea, #764ba2);
+}
+body.tsb-on.tsb-expanded #top-settings-holder #ai-config-button .drawer-icon {
+    background: linear-gradient(145deg, #4776e6, #2b59a2);
+}
+body.tsb-on.tsb-expanded #top-settings-holder #advanced-formatting-button .drawer-icon {
+    background: linear-gradient(145deg, #667085, #344054);
+}
+body.tsb-on.tsb-expanded #top-settings-holder #WI-SP-button .drawer-icon {
+    background: linear-gradient(145deg, #f7971e, #e65c00);
+}
+body.tsb-on.tsb-expanded #top-settings-holder #backgrounds-button .drawer-icon {
+    background: linear-gradient(145deg, #11998e, #38ef7d);
+    color: #102a26;
+}
+body.tsb-on.tsb-expanded #top-settings-holder #extensions-settings-button .drawer-icon {
+    background: linear-gradient(145deg, #8e2de2, #4a00e0);
+}
+body.tsb-on.tsb-expanded #top-settings-holder #persona-management-button .drawer-icon {
+    background: linear-gradient(145deg, #f953c6, #b91d73);
+}
+body.tsb-on.tsb-expanded #top-settings-holder #user-settings-button .drawer-icon {
+    background: linear-gradient(145deg, #36d1dc, #5b86e5);
+}
+body.tsb-on.tsb-expanded #top-settings-holder #rightNavHolder .drawer-icon {
+    background: linear-gradient(145deg, #ff9966, #ff5e62);
+}
+
+body.tsb-on.tsb-expanded #top-settings-holder .drawer:has(.openIcon) > .drawer-toggle {
+    background: rgba(255, 255, 255, 0.065);
+    border-radius: 14px;
+}
+
+@media (max-width: 899px) {
+    body.tsb-on {
+        --tsb-rail: 52px;
+    }
+    body.tsb-on #top-settings-holder.tsb-sidebar {
+        padding: 8px 6px;
+    }
+}
