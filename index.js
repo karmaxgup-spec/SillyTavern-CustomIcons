@@ -146,6 +146,12 @@ function onDocumentClick(event) {
 
     // The menu button only controls whether the sidebar is expanded.
     if (target.closest('#tsb-toggle')) {
+        // On phones, the Menu button closes an open menu first (the menu covers the screen).
+        const openMenu = document.querySelector('#top-settings-holder .drawer-content.openDrawer:not(.pinnedOpen)');
+        if (openMenu && window.matchMedia('(max-width: 899px)').matches) {
+            openMenu.parentElement.querySelector(':scope > .drawer-toggle')?.click();
+            return;
+        }
         setExpanded(!document.body.classList.contains('tsb-expanded'));
         return;
     }
