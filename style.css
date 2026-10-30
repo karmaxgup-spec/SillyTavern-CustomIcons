@@ -210,7 +210,9 @@ body.tsb-on:not(.tsb-expanded) #top-settings-holder.tsb-sidebar {
 }
 
 /* ---------- Collapsed mode: show only the three-line menu ---------- */
-body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-group,
+/* Only the icon buttons hide. The groups stay in place because each menu popup
+   is a child of its group, and hiding the group would hide the open menu too. */
+body.tsb-on:not(.tsb-expanded) #top-settings-holder .drawer-toggle,
 body.tsb-on:not(.tsb-expanded) #top-settings-holder .tsb-divider {
     display: none !important;
 }
