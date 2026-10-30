@@ -1,8 +1,22 @@
 import { eventSource, event_types, saveSettingsDebounced } from '../../../../script.js';
-import { extension_settings, renderExtensionTemplateAsync } from '../../../extensions.js';
+import { extension_settings } from '../../../extensions.js';
 
 const MODULE = 'topSidebar';
-const EXTENSION_FOLDER = 'third-party/st-top-sidebar';
+const SETTINGS_HTML = `
+<div class="tsb-settings inline-drawer">
+    <div class="inline-drawer-toggle inline-drawer-header">
+        <b>Top Icon Sidebar</b>
+        <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+    </div>
+    <div class="inline-drawer-content">
+        <label class="checkbox_label" for="tsb_enabled">
+            <input type="checkbox" id="tsb_enabled">
+            <span>Show the top icons as a sidebar</span>
+        </label>
+        <small>Use the menu button at the top of the sidebar to expand or collapse it. Expanded state is remembered per device.</small>
+    </div>
+</div>`;
+
 
 const GROUPS = [
     ['sys-settings-button', 'ai-config-button', 'advanced-formatting-button'],
@@ -149,17 +163,16 @@ function onDocumentClick(event) {
 jQuery(async () => {
     ensureSettings();
 
-    try {
-        const html = await renderExtensionTemplateAsync(EXTENSION_FOLDER, 'settings');
-        $('#extensions_settings').append(html);
-        $('#tsb_enabled').on('change', function () {
-            extension_settings[MODULE].enabled = this.checked;
-            saveSettingsDebounced();
-            applyState();
-        });
-    } catch (error) {
-        console.error('[Top Icon Sidebar] Could not render settings', error);
+    // The settings markup is inline, so nothing is fetched from the server (no 404 possible).
+    const container = document.getElementById('extensions_settings');
+    if (container && !document.querySelector('.tsb-settings')) {
+        container.insertAdjacentHTML('beforeend', SETTINGS_HTML);
     }
+    $('#tsb_enabled').on('change', function () {
+        extension_settings[MODULE].enabled = this.checked;
+        saveSettingsDebounced();
+        applyState();
+    });
 
     document.addEventListener('click', onDocumentClick);
     applyState();
