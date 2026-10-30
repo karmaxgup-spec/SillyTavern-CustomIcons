@@ -180,3 +180,7 @@ jQuery(async () => {
 
 eventSource.on(event_types.APP_READY, applyState);
 
+/** Called by SillyTavern when the extension activates (see "hooks" in manifest.json). */
+export function init() {
+    applyState();
+}
