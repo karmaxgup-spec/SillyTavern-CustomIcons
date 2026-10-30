@@ -182,10 +182,29 @@ body.tsb-on #bg_custom {
 }
 
 @media (max-width: 899px) {
+    /* Phones: an open menu fills the whole screen. */
+    body.tsb-on #top-settings-holder .drawer-content,
     body.tsb-on #top-settings-holder .drawer-content.fillLeft,
     body.tsb-on #top-settings-holder .drawer-content.fillRight {
-        left: var(--tsb-cur) !important;
-        width: calc(100dvw - var(--tsb-cur) - 8px) !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100dvw !important;
+        max-width: 100dvw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        z-index: 3010 !important;
+    }
+
+    /* The Menu button stays on top of the full-screen menu, so it can close it. */
+    body.tsb-on #top-settings-holder #tsb-toggle-row {
+        position: relative;
+        z-index: 3020;
     }
 
     body.tsb-on #top-settings-holder.tsb-sidebar {
