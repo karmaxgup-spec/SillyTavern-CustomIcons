@@ -788,3 +788,30 @@ body.tsb-on.tsb-ig #top-settings-holder .tsb-toggle {
 body.tsb-on.tsb-ig #top-settings-holder .tsb-divider {
     background: #2e2f33;
 }
+
+/* ---------- Send button: a 40px rounded Instagram-gradient tile that matches the mic button ---------- */
+body.tsb-on.tsb-ig #send_but {
+    background: var(--ig-gradient) !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 13px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 8px rgba(214, 41, 118, 0.35) !important;
+}
+
+body.tsb-on.tsb-ig #send_but::before {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+body.tsb-on.tsb-ig #send_but:hover {
+    filter: brightness(1.1);
+    border-color: transparent !important;
+}
