@@ -336,3 +336,24 @@ body.tsb-on.tsb-expanded #top-settings-holder .drawer:has(.openIcon) > .drawer-t
         padding: 8px 6px;
     }
 }
+
+/* ---------- Send bar: magic wand becomes a camera, menu keeps only Attach a File + third-party items ---------- */
+body.tsb-on #extensionsMenuButton::before {
+    content: "\f030" !important;
+}
+
+/* Built-in items hidden by their container id. Third-party extensions keep their own ids and stay visible. */
+body.tsb-on #extensionsMenu > #data_bank_wand_container,
+body.tsb-on #extensionsMenu > #sd_wand_container,
+body.tsb-on #extensionsMenu > #caption_wand_container,
+body.tsb-on #extensionsMenu > #tts_wand_container,
+body.tsb-on #extensionsMenu > #token_counter_wand_container,
+body.tsb-on #extensionsMenu > #translate_wand_container {
+    display: none !important;
+}
+
+/* Kept menu items get clearer icons: Show Gallery uses the standard image-gallery icon
+   (the SD-card icon looked out of place). Attach a File keeps its paperclip. */
+body.tsb-on #extensionsMenu > #gallery_wand_container .fa-sd-card::before {
+    content: "\f302" !important;
+}
