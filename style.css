@@ -342,10 +342,10 @@ body.tsb-on #extensionsMenuButton::before {
     content: "\f030" !important;
 }
 
-/* Built-in items hidden by their container id. Third-party extensions keep their own ids and stay visible. */
+/* Built-in items hidden by their container id. Third-party extensions keep their own ids and stay visible.
+   #caption_wand_container (Generate Caption) is intentionally not listed, so it shows. */
 body.tsb-on #extensionsMenu > #data_bank_wand_container,
 body.tsb-on #extensionsMenu > #sd_wand_container,
-body.tsb-on #extensionsMenu > #caption_wand_container,
 body.tsb-on #extensionsMenu > #tts_wand_container,
 body.tsb-on #extensionsMenu > #token_counter_wand_container,
 body.tsb-on #extensionsMenu > #translate_wand_container {
