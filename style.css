@@ -866,3 +866,72 @@ body.tsb-on.tsb-ig input[type="checkbox"]:checked {
 body.tsb-on.tsb-ig input[type="checkbox"]::before {
     box-shadow: inset 1em 1em #ffffff !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   Generating-state send button
+   While a reply is generating, the send tile becomes the stop button in
+   the same spot: a gradient tile with a spinning ring and a stop square.
+   Only one icon shows. SillyTavern shows #mes_stop with inline
+   "display: flex" while generating; that is the trigger for these rules.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Hide the send tile while generating */
+#rightSendForm:has(#mes_stop[style*="flex"]) #send_but {
+    display: none !important;
+}
+
+/* The stop button takes the send tile's place and size */
+#rightSendForm:has(#mes_stop[style*="flex"]) #mes_stop {
+    display: flex !important;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+    min-height: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 13px;
+    background: var(--ig-gradient);
+    box-shadow: 0 2px 8px rgba(214, 41, 118, 0.35);
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Hide SillyTavern's stop-circle glyph so it can't overlap the spinner */
+#rightSendForm:has(#mes_stop[style*="flex"]) #mes_stop i {
+    display: none !important;
+}
+
+/* Spinning ring */
+#rightSendForm:has(#mes_stop[style*="flex"]) #mes_stop::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    animation: sc-generating-spin 0.9s linear infinite;
+    pointer-events: none;
+}
+
+/* Stop square in the centre */
+#rightSendForm:has(#mes_stop[style*="flex"]) #mes_stop::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background: #ffffff;
+    pointer-events: none;
+}
+
+@keyframes sc-generating-spin {
+    to { transform: rotate(360deg); }
+}
