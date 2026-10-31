@@ -373,3 +373,418 @@ body.tsb-on #top-settings-holder #tsb-toggle-row,
 body.tsb-on #top-settings-holder .drawer-content {
     pointer-events: auto;
 }
+
+/* ================= Instagram / Discord theme (on when the extension is on and the theme option is ticked) ================= */
+:root {
+    --ig-bg: #000000;
+    --ig-surface: #121212;
+    --ig-surface-2: #1c1c1e;
+    --ig-surface-3: #262626;
+
+    --ig-border: #262626;
+    --ig-border-light: #363636;
+
+    --ig-text: #f5f5f5;
+    --ig-muted: #a8a8a8;
+
+    --ig-pink: #e1306c;
+    --ig-red: #ff3040;
+    --ig-purple: #833ab4;
+    --ig-blue: #405de6;
+    --ig-orange: #f77737;
+
+    --ig-gradient: linear-gradient(
+        45deg,
+        #feda75 0%,
+        #fa7e1e 20%,
+        #d62976 50%,
+        #962fbf 75%,
+        #4f5bd5 100%
+    );
+
+    --ig-icon: #d6d6d6;
+    --ig-icon-hover: #ffffff;
+}
+body.tsb-on.tsb-ig, body.tsb-on.tsb-ig #app, body.tsb-on.tsb-ig #sheld {
+    background: var(--ig-bg) !important;
+        color: var(--ig-text);
+}
+body.tsb-on.tsb-ig #chat {
+    background-color: #000000 !important;
+        background-image: radial-gradient(
+            ellipse at 50% 0%,
+            rgba(131, 58, 180, 0.075),
+            transparent 58%
+        ) !important;
+}
+body.tsb-on.tsb-ig #top-bar, body.tsb-on.tsb-ig #top-settings-holder, body.tsb-on.tsb-ig #top-bar > *, body.tsb-on.tsb-ig #top-settings-holder > *, body.tsb-on.tsb-ig .drawer-header {
+    background-color: #000000 !important;
+        border-color: var(--ig-border) !important;
+}
+body.tsb-on.tsb-ig #top-bar button, body.tsb-on.tsb-ig #top-bar .menu_button, body.tsb-on.tsb-ig #top-settings-holder button, body.tsb-on.tsb-ig #top-settings-holder .menu_button {
+    color: var(--ig-icon) !important;
+}
+body.tsb-on.tsb-ig #top-bar button i, body.tsb-on.tsb-ig #top-bar button .fa, body.tsb-on.tsb-ig #top-bar button .fas, body.tsb-on.tsb-ig #top-bar button .far, body.tsb-on.tsb-ig #top-bar button .fab, body.tsb-on.tsb-ig #top-bar .menu_button i, body.tsb-on.tsb-ig #top-settings-holder button i, body.tsb-on.tsb-ig #top-settings-holder .menu_button i {
+    color: var(--ig-icon) !important;
+        opacity: 1 !important;
+}
+body.tsb-on.tsb-ig #top-bar button svg, body.tsb-on.tsb-ig #top-settings-holder button svg {
+    color: var(--ig-icon) !important;
+        fill: currentColor;
+        opacity: 1 !important;
+}
+body.tsb-on.tsb-ig #top-bar button span, body.tsb-on.tsb-ig #top-settings-holder button span {
+    opacity: 1;
+}
+body.tsb-on.tsb-ig #top-bar button:hover, body.tsb-on.tsb-ig #top-settings-holder button:hover {
+    background-color: #181818 !important;
+        color: #ffffff !important;
+}
+body.tsb-on.tsb-ig #top-bar button:hover i, body.tsb-on.tsb-ig #top-bar button:hover svg, body.tsb-on.tsb-ig #top-settings-holder button:hover i, body.tsb-on.tsb-ig #top-settings-holder button:hover svg {
+    color: #ffffff !important;
+}
+body.tsb-on.tsb-ig #top-bar button.active, body.tsb-on.tsb-ig #top-bar button.selected, body.tsb-on.tsb-ig #top-settings-holder button.active, body.tsb-on.tsb-ig #top-settings-holder button.selected {
+    color: #ff5ca8 !important;
+}
+body.tsb-on.tsb-ig #send_form, body.tsb-on.tsb-ig #send_form .right_menu_button, body.tsb-on.tsb-ig #send_form .left_menu_button, body.tsb-on.tsb-ig #send_form .interactable, body.tsb-on.tsb-ig #send_form .menu_button, body.tsb-on.tsb-ig #send_form .round_button {
+    background-color: #000000;
+        border-color: var(--ig-border);
+}
+body.tsb-on.tsb-ig #send_form button, body.tsb-on.tsb-ig #send_form .menu_button, body.tsb-on.tsb-ig #send_form .round_button, body.tsb-on.tsb-ig #send_form .interactable, body.tsb-on.tsb-ig #send_form i {
+    color: var(--ig-icon) !important;
+        opacity: 1 !important;
+}
+body.tsb-on.tsb-ig #send_form button i, body.tsb-on.tsb-ig #send_form button .fa, body.tsb-on.tsb-ig #send_form button .fas, body.tsb-on.tsb-ig #send_form button .far, body.tsb-on.tsb-ig #send_form button .fab, body.tsb-on.tsb-ig #send_form .menu_button i, body.tsb-on.tsb-ig #send_form .round_button i {
+    color: var(--ig-icon) !important;
+        opacity: 1 !important;
+}
+body.tsb-on.tsb-ig #send_form button svg, body.tsb-on.tsb-ig #send_form .menu_button svg, body.tsb-on.tsb-ig #send_form .round_button svg {
+    color: var(--ig-icon) !important;
+        opacity: 1 !important;
+}
+body.tsb-on.tsb-ig #send_form button:hover, body.tsb-on.tsb-ig #send_form .menu_button:hover, body.tsb-on.tsb-ig #send_form .round_button:hover {
+    background-color: #1a1a1a !important;
+}
+body.tsb-on.tsb-ig #send_form button:hover i, body.tsb-on.tsb-ig #send_form button:hover svg, body.tsb-on.tsb-ig #send_form .menu_button:hover i, body.tsb-on.tsb-ig #send_form .round_button:hover i {
+    color: #ffffff !important;
+}
+body.tsb-on.tsb-ig #send_but, body.tsb-on.tsb-ig #mes_send, body.tsb-on.tsb-ig #send_button {
+    background: var(--ig-gradient) !important;
+        color: #ffffff !important;
+        border: none !important;
+}
+body.tsb-on.tsb-ig #send_but i, body.tsb-on.tsb-ig #mes_send i, body.tsb-on.tsb-ig #send_button i {
+    color: #ffffff !important;
+}
+body.tsb-on.tsb-ig .mes {
+    border-color: var(--ig-border);
+}
+body.tsb-on.tsb-ig .mes_text {
+    color: var(--ig-text);
+}
+body.tsb-on.tsb-ig .mes .timestamp, body.tsb-on.tsb-ig .mes .mes_timer, body.tsb-on.tsb-ig .mes .token_counter {
+    color: var(--ig-muted);
+}
+body.tsb-on.tsb-ig .mes .mes_button, body.tsb-on.tsb-ig .mes .mes_edit, body.tsb-on.tsb-ig .mes .mes_edit_buttons button {
+    color: var(--ig-icon) !important;
+}
+body.tsb-on.tsb-ig .mes .mes_button i, body.tsb-on.tsb-ig .mes .mes_edit i {
+    color: var(--ig-icon) !important;
+}
+body.tsb-on.tsb-ig .mes .mes_button:hover, body.tsb-on.tsb-ig .mes .mes_edit:hover {
+    color: #ff5ca8 !important;
+}
+body.tsb-on.tsb-ig #send_form textarea, body.tsb-on.tsb-ig #send_textarea, body.tsb-on.tsb-ig #send_form .text_pole {
+    background-color: #121212 !important;
+        color: var(--ig-text) !important;
+        border: 1px solid #292929 !important;
+        border-radius: 22px !important;
+        box-shadow: none !important;
+}
+body.tsb-on.tsb-ig #send_form textarea::placeholder, body.tsb-on.tsb-ig #send_textarea::placeholder {
+    color: #777777 !important;
+}
+body.tsb-on.tsb-ig #send_form textarea:focus, body.tsb-on.tsb-ig #send_textarea:focus {
+    border-color: var(--ig-purple) !important;
+        box-shadow: 0 0 0 1px rgba(131, 58, 180, 0.3) !important;
+        outline: none !important;
+}
+body.tsb-on.tsb-ig button, body.tsb-on.tsb-ig .menu_button, body.tsb-on.tsb-ig .round_button {
+    transition:
+            color 0.18s ease,
+            background-color 0.18s ease,
+            border-color 0.18s ease;
+}
+body.tsb-on.tsb-ig button:hover, body.tsb-on.tsb-ig .menu_button:hover, body.tsb-on.tsb-ig .round_button:hover {
+    border-color: rgba(214, 41, 118, 0.6);
+}
+body.tsb-on.tsb-ig #toast-container {
+    box-sizing: border-box !important;
+        padding: 8px !important;
+        width: min(290px, calc(100vw - 16px)) !important;
+        pointer-events: none !important;
+}
+body.tsb-on.tsb-ig #toast-container.toast-top-right {
+    top: 8px !important;
+        right: 8px !important;
+        left: auto !important;
+}
+body.tsb-on.tsb-ig #toast-container.toast-top-left {
+    top: 8px !important;
+        left: 8px !important;
+        right: auto !important;
+}
+body.tsb-on.tsb-ig #toast-container > div, body.tsb-on.tsb-ig #toast-container > .toast, body.tsb-on.tsb-ig #toast-container > .toast-success, body.tsb-on.tsb-ig #toast-container > .toast-info, body.tsb-on.tsb-ig #toast-container > .toast-warning, body.tsb-on.tsb-ig #toast-container > .toast-error, body.tsb-on.tsb-ig .toast-notification, body.tsb-on.tsb-ig .notification-toast, body.tsb-on.tsb-ig .popup-notification {
+    box-sizing: border-box !important;
+        position: relative !important;
+    
+        width: 100% !important;
+        min-height: 0 !important;
+        margin: 0 0 7px 0 !important;
+        padding: 10px 30px 10px 11px !important;
+    
+        background: #1c1c1e !important;
+        color: #f5f5f5 !important;
+    
+        border: 1px solid #303033 !important;
+        border-left: 2px solid #d62976 !important;
+        border-radius: 11px !important;
+    
+        box-shadow:
+            0 4px 14px rgba(0, 0, 0, 0.35),
+            0 1px 3px rgba(0, 0, 0, 0.2) !important;
+    
+        opacity: 1 !important;
+        text-shadow: none !important;
+        overflow-wrap: anywhere !important;
+        pointer-events: auto !important;
+    
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    
+        animation: ig-toast-enter 0.22s ease-out both !important;
+}
+body.tsb-on.tsb-ig #toast-container > div *, body.tsb-on.tsb-ig .toast-notification *, body.tsb-on.tsb-ig .notification-toast *, body.tsb-on.tsb-ig .popup-notification * {
+    text-shadow: none !important;
+}
+body.tsb-on.tsb-ig #toast-container > div > .toast-icon, body.tsb-on.tsb-ig #toast-container > div > i.toast-icon, body.tsb-on.tsb-ig #toast-container > div > .toast-image, body.tsb-on.tsb-ig .toast-notification > .toast-icon, body.tsb-on.tsb-ig .notification-toast > .toast-icon, body.tsb-on.tsb-ig .popup-notification > .toast-icon {
+    display: none !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-title, body.tsb-on.tsb-ig .toast-title, body.tsb-on.tsb-ig .notification-title {
+    display: block !important;
+        margin: 0 0 2px 0 !important;
+        padding: 0 !important;
+    
+        color: #ffffff !important;
+        font-size: 12px !important;
+        font-weight: 650 !important;
+        line-height: 1.3 !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-message, body.tsb-on.tsb-ig .toast-message, body.tsb-on.tsb-ig .notification-message {
+    display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    
+        color: #d4d4d8 !important;
+        font-size: 11px !important;
+        font-weight: 400 !important;
+        line-height: 1.35 !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-close-button, body.tsb-on.tsb-ig .toast-close-button, body.tsb-on.tsb-ig .toast-notification .close, body.tsb-on.tsb-ig .notification-toast .close {
+    position: absolute !important;
+        top: 5px !important;
+        right: 6px !important;
+    
+        display: block !important;
+        width: 18px !important;
+        height: 18px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    
+        background: transparent !important;
+        border: none !important;
+        border-radius: 50% !important;
+    
+        color: #929298 !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        line-height: 18px !important;
+        text-align: center !important;
+    
+        opacity: 0.8 !important;
+        text-shadow: none !important;
+        cursor: pointer !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-close-button:hover, body.tsb-on.tsb-ig .toast-close-button:hover {
+    color: #ffffff !important;
+        background: #333336 !important;
+        opacity: 1 !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-success, body.tsb-on.tsb-ig .toast-success {
+    border-left-color: #58c78b !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-info, body.tsb-on.tsb-ig .toast-info {
+    border-left-color: #6096ff !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-warning, body.tsb-on.tsb-ig .toast-warning {
+    border-left-color: #f5b84b !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-error, body.tsb-on.tsb-ig .toast-error {
+    border-left-color: #ff5964 !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-success, body.tsb-on.tsb-ig #toast-container .toast-info, body.tsb-on.tsb-ig #toast-container .toast-warning, body.tsb-on.tsb-ig #toast-container .toast-error {
+    background: #1c1c1e !important;
+        color: #f5f5f5 !important;
+}
+body.tsb-on.tsb-ig #toast-container .toast-progress {
+    height: 2px !important;
+        background: linear-gradient(
+            90deg,
+            #feda75,
+            #fa7e1e,
+            #d62976,
+            #833ab4,
+            #405de6
+        ) !important;
+        opacity: 0.9 !important;
+}
+body.tsb-on.tsb-ig #toast-container > div:hover {
+    box-shadow: 0 5px 17px rgba(0, 0, 0, 0.45) !important;
+}
+@keyframes ig-toast-enter {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    body.tsb-on.tsb-ig #toast-container > div {
+        animation: none !important;
+    }
+}
+body.tsb-on.tsb-ig input, body.tsb-on.tsb-ig select, body.tsb-on.tsb-ig textarea, body.tsb-on.tsb-ig .text_pole {
+    background-color: #181818;
+        color: var(--ig-text);
+        border-color: #333333;
+}
+body.tsb-on.tsb-ig input:focus, body.tsb-on.tsb-ig select:focus, body.tsb-on.tsb-ig textarea:focus, body.tsb-on.tsb-ig .text_pole:focus {
+    border-color: var(--ig-purple);
+        outline: none;
+}
+body.tsb-on.tsb-ig * {
+    scrollbar-color: #494049 #080808;
+}
+body.tsb-on.tsb-ig ::-webkit-scrollbar {
+    width: 6px;
+        height: 6px;
+}
+body.tsb-on.tsb-ig ::-webkit-scrollbar-track {
+    background: #080808;
+}
+body.tsb-on.tsb-ig ::-webkit-scrollbar-thumb {
+    background: #494049;
+        border-radius: 10px;
+}
+body.tsb-on.tsb-ig ::-webkit-scrollbar-thumb:hover {
+    background: #d62976;
+}
+body.tsb-on.tsb-ig a {
+    color: #d98aff;
+}
+body.tsb-on.tsb-ig a:hover {
+    color: #ff5ca8;
+}
+body.tsb-on.tsb-ig ::selection {
+    background: rgba(214, 41, 118, 0.35);
+        color: #ffffff;
+}
+body.tsb-on.tsb-ig hr {
+    border-color: var(--ig-border);
+}
+@media (prefers-reduced-motion: reduce) {
+    body.tsb-on.tsb-ig *, body.tsb-on.tsb-ig *::before, body.tsb-on.tsb-ig *::after {
+        transition: none !important;
+                animation: none !important;
+    }
+}
+/* ---------- Discord-style server rail + Instagram accents for the sidebar ---------- */
+body.tsb-on.tsb-ig #top-settings-holder.tsb-sidebar {
+    background: #1e1f22 !important;
+    border-right: none !important;
+}
+
+body.tsb-on.tsb-ig:not(.tsb-expanded) #top-settings-holder.tsb-sidebar {
+    background: transparent !important;
+}
+
+/* Each icon is a rounded tile that squares off on hover (Discord style). */
+body.tsb-on.tsb-ig #top-settings-holder .drawer-toggle {
+    position: relative;
+    border-radius: 24px;
+    background: #313338;
+    transition: border-radius 0.2s ease, background 0.2s ease;
+}
+
+body.tsb-on.tsb-ig #top-settings-holder .drawer-toggle:hover {
+    border-radius: 16px;
+    background: #3f4147;
+}
+
+/* Icons: one colour for all, so the gradients from before no longer compete. */
+body.tsb-on.tsb-ig #top-settings-holder .drawer-icon {
+    color: var(--ig-icon) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
+    font-size: 18px !important;
+}
+
+body.tsb-on.tsb-ig #top-settings-holder .drawer-toggle:hover .drawer-icon {
+    color: var(--ig-icon-hover) !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+/* Open item: Instagram gradient tile with a white pill on its left edge (Discord style). */
+body.tsb-on.tsb-ig #top-settings-holder .drawer:has(.openIcon) > .drawer-toggle {
+    background: var(--ig-gradient) !important;
+    border-radius: 16px !important;
+}
+
+body.tsb-on.tsb-ig #top-settings-holder .drawer:has(.openIcon) .drawer-icon {
+    color: #ffffff !important;
+}
+
+body.tsb-on.tsb-ig #top-settings-holder .drawer:has(.openIcon) > .drawer-toggle::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    width: 4px;
+    height: 20px;
+    margin-top: -10px;
+    border-radius: 0 4px 4px 0;
+    background: #ffffff;
+}
+
+/* Labels use the theme text colour. */
+body.tsb-on.tsb-ig .tsb-label {
+    color: var(--ig-text);
+}
+
+/* The Menu button keeps the Instagram gradient. */
+body.tsb-on.tsb-ig #top-settings-holder .tsb-toggle {
+    background: var(--ig-gradient);
+    border-radius: 16px;
+}
+
+body.tsb-on.tsb-ig #top-settings-holder .tsb-divider {
+    background: #2e2f33;
+}
