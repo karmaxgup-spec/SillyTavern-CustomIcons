@@ -357,3 +357,19 @@ body.tsb-on #extensionsMenu > #translate_wand_container {
 body.tsb-on #extensionsMenu > #gallery_wand_container .fa-sd-card::before {
     content: "\f302" !important;
 }
+
+/* ---------- Chat options (☰ button): keep only Start new chat, Close chat and Delete messages ---------- */
+body.tsb-on #options .options-content > a:not(#option_start_new_chat):not(#option_close_chat):not(#option_delete_mes),
+body.tsb-on #options .options-content > hr {
+    display: none !important;
+}
+
+/* ---------- Collapsed rail lets taps through (only the Menu button and open menus stay tappable) ---------- */
+body.tsb-on:not(.tsb-expanded) #top-settings-holder.tsb-sidebar {
+    pointer-events: none;
+}
+
+body.tsb-on #top-settings-holder #tsb-toggle-row,
+body.tsb-on #top-settings-holder .drawer-content {
+    pointer-events: auto;
+}
