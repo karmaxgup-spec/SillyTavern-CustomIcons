@@ -13,6 +13,10 @@ const SETTINGS_HTML = `
             <input type="checkbox" id="tsb_enabled">
             <span>Show the top icons as a sidebar</span>
         </label>
+        <label class="checkbox_label" for="tsb_theme">
+            <input type="checkbox" id="tsb_theme">
+            <span>Instagram / Discord theme</span>
+        </label>
         <small>Use the menu button at the top of the sidebar to expand or collapse it. Expanded state is remembered per device.</small>
     </div>
 </div>`;
@@ -30,10 +34,15 @@ let originalIds = [];
 function ensureSettings() {
     if (!extension_settings[MODULE]) extension_settings[MODULE] = {};
     if (extension_settings[MODULE].enabled === undefined) extension_settings[MODULE].enabled = true;
+    if (extension_settings[MODULE].theme === undefined) extension_settings[MODULE].theme = true;
 }
 
 function isEnabled() {
     return !!extension_settings[MODULE]?.enabled;
+}
+
+function isThemeOn() {
+    return !!extension_settings[MODULE]?.theme;
 }
 
 function getExpanded() {
@@ -126,6 +135,7 @@ function applyState() {
     const enabled = isEnabled();
     const holder = document.getElementById('top-settings-holder');
     document.body.classList.toggle('tsb-on', enabled);
+    document.body.classList.toggle('tsb-ig', enabled && isThemeOn());
     holder?.classList.toggle('tsb-sidebar', enabled);
 
     if (enabled) {
@@ -138,6 +148,8 @@ function applyState() {
 
     const checkbox = document.getElementById('tsb_enabled');
     if (checkbox) checkbox.checked = enabled;
+    const themeBox = document.getElementById('tsb_theme');
+    if (themeBox) themeBox.checked = isThemeOn();
 }
 
 function onDocumentClick(event) {
@@ -176,6 +188,11 @@ jQuery(async () => {
     }
     $('#tsb_enabled').on('change', function () {
         extension_settings[MODULE].enabled = this.checked;
+        saveSettingsDebounced();
+        applyState();
+    });
+    $('#tsb_theme').on('change', function () {
+        extension_settings[MODULE].theme = this.checked;
         saveSettingsDebounced();
         applyState();
     });
